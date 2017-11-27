@@ -151,6 +151,11 @@ Weapons.prototype = {
 			                explosionRadius.dispose();
 			            }
 			        });
+                    
+                    // Si c'est une cible on l'élimine.
+                    if (meshFound.pickedMesh.name === "target") {
+                        meshFound.pickedMesh.dispose();
+                    }
 			    }
     			newRocket.dispose();
 			}

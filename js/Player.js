@@ -234,8 +234,13 @@ Player.prototype = {
             this.camera.playerBox.moveWithCollisions(right);
         }
         //this.camera.playerBox.moveWithCollisions(new BABYLON.Vector3(0,(-0.5) * relativeSpeed ,0));//pas l'air utile, on va vérifier si la gravité seule marche,sinon, on la met pas dans le tp
-
-
+          
+        // Si le joueur tombe il recommence au départ.
+        if(this.camera.playerBox.position.y < -200)
+        {
+            this.camera.playerBox.position = new BABYLON.Vector3(-20, 6, 0);
+        }
+          
         if(this.camera.jumpNeed){
           
 
@@ -261,7 +266,7 @@ Player.prototype = {
         else{
 
 
-                // On trace un rayon depuis le joueur
+    // On trace un rayon depuis le joueur
     var rayPlayer = new BABYLON.Ray(this.camera.playerBox.position,new BABYLON.Vector3(0,-1,0));
 
     // On regarde quel est le premier objet qu'on touche
@@ -295,6 +300,8 @@ Player.prototype = {
 
 
     },
+    
+
 
     handleUserMouseDown : function() {
         if(this.isAlive === true){

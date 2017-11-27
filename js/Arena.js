@@ -73,4 +73,9 @@ this.game.scene.boxtest=boxtest;//
             }
         }
     }
+    
+    var targetBox = BABYLON.Mesh.CreateBox("target", 2, scene);
+    targetBox.position.y = 3;
+    targetBox.checkCollisions = true;
+    
 };
